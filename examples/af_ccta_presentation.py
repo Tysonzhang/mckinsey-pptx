@@ -91,7 +91,6 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
     # ============================================
     b.add("column_comparison",
           title="图像质量分析",
-          subtitle="冠状动脉节段诊断质量比较",
           categories=[
               "总体诊断价值",
               "优秀质量",
@@ -103,6 +102,9 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
           ],
           values=[98, 54, 98, 99, 99, 98, 98],
           focus_index=0,
+          data_label="诊断质量",
+          data_unit="%",
+          description="冠状动脉节段诊断质量比较",
           takeaways=[
               "98%的冠状动脉节段具有诊断价值",
               "54%的节段达到优秀图像质量",
@@ -115,7 +117,6 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
     # ============================================
     b.add("column_comparison",
           title="诊断性能分析",
-          subtitle="患者水平 vs 节段水平诊断效能",
           categories=[
               "患者-敏感性",
               "患者-特异性",
@@ -124,6 +125,9 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
           ],
           values=[93, 90, 86, 98],
           focus_index=1,
+          data_label="诊断效能",
+          data_unit="%",
+          description="患者水平 vs 节段水平诊断效能",
           takeaways=[
               "患者水平：敏感性93%，特异性90%",
               "节段水平：敏感性86%，特异性98%",
@@ -136,7 +140,6 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
     # ============================================
     b.add("column_comparison",
           title="辐射剂量分析",
-          subtitle="不同扫描方案的辐射剂量比较",
           categories=[
               "总体剂量",
               "前瞻性触发",
@@ -144,6 +147,9 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
           ],
           values=[821, 558, 1239],
           focus_index=1,
+          data_label="辐射剂量",
+          data_unit="mSv",
+          description="不同扫描方案的辐射剂量比较",
           takeaways=[
               "总体剂量：8.21 mSv（95% CI: 6.28-10.13）",
               "前瞻性触发方案：5.58 mSv（95% CI: 4.11-7.05）",
@@ -156,7 +162,6 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
     # ============================================
     b.add("prioritization_matrix",
           title="技术优化策略",
-          subtitle="基于证据的技术参数优先级分析",
           items=[
               {"name": "≥128层CT", "x_band": 2, "y_band": 0, "ox": 0.25, "oy": 0.5, "status": "green"},
               {"name": "前瞻性ECG触发", "x_band": 2, "y_band": 0, "ox": 0.7, "oy": 0.5, "status": "green"},
@@ -171,14 +176,7 @@ def build_af_ccta_presentation(output_path: str = "output/af_ccta_presentation.p
     # ============================================
     b.add("growth_share",
           title="特殊人群分析",
-          subtitle="不同患者群体的图像质量和诊断性能",
-          x_max=100, y_max=100,
-          x_label="Market Share", x_unit="%",
-          y_label="Growth", y_unit="%",
-          diagonal=True,
-          state_top_left="High Growth, High Share",
-          state_bottom_right="Low Growth, Low Share",
-          buses=[
+          bus=[
               {"name": "瓣膜疾病\n99%", "x": 75, "y": 85, "size": 4},
               {"name": "BMI≥24\n99%", "x": 70, "y": 80, "size": 3.5},
               {"name": "HRV>50bpm\n98%", "x": 55, "y": 70, "size": 3},
